@@ -28,6 +28,7 @@ public class Bug41 {
                         "|}";
 
         System.out.println("\n *** bug, one cell *** \n");
+
         printCells(text);
 
         String shouldParseAs = text.replace("-->\n", "-->");
@@ -37,6 +38,11 @@ public class Bug41 {
     }
 
     private static void printCells(String text) throws LinkTargetException, EngineException {
+
+        System.out.println("** start wiki text **");
+        System.out.println(text);
+        System.out.println("** end wiki text **");
+
         PageId title = new PageId(PageTitle.make(config, "title"), -1);
         EngProcessedPage page = new WtEngineImpl(config).postprocess(title, text, null);
 
